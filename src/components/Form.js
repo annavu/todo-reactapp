@@ -29,8 +29,8 @@ addTask(e) {
   render() {
     return (
       <form className="form" onSubmit={this.addTask.bind(this)}>
-        <input type="text" name="task" className="input" placeholder="enter task.." autoComplete="off"/>  
-        <button className="btn">add</button>
+        <input type="text" name="task" className="input" placeholder="enter your task.." autoComplete="off"/>  
+        <button className="add">add</button>
       </form>
     )
   }

@@ -10,11 +10,73 @@
 body {
   /* font-family: "Open Sans", serif; */
   font-family: "Montserrat";
-  background: #777;
-  color: #000;
+  background: #ddd;
+  color:  #666;
 }
 
 
 .container {
   text-align: center;
+}
+
+.input, .add {
+  background: #ccc;
+  box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+  border: none; 
+  color: #777;
+  font-weight: bold;
+  padding: 8px 10px;
+  outline: none;
+}
+
+.add {
+  cursor: pointer;
+}
+
+
+.list {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.item {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+}
+
+
+.list__item {
+  list-style: none;
+}
+
+.list__btn {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.btn__edit {
+  margin: 0 10px;
+  padding: 5px 20px;
+  cursor: pointer;
+  color: #777;
+  box-shadow: 2px 3px 5px rgba(68,68,68,0.3);
+  background: #ccc;
+  border: none;
+  font-weight: bold;
+}
+
+.fa {
+  color: #888;
+  font-size: 25px;
+  cursor: pointer;
+  margin-top:2px;
+}
+
+.fa:hover {
+  color: rgb(173, 9, 9);
+  transition: 0.7s;
 }
