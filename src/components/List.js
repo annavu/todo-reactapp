@@ -4,6 +4,13 @@ import Title from './Title';
 
 class List extends React.Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      edit: false
+    }
+  }
+
   showItems() {
     let items = this.props.items;
     console.log(items);
@@ -14,19 +21,9 @@ class List extends React.Component {
 
   }
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      edit: false
-    }
-  }
-
-  
 
   render() {
     console.log(this.props.items);
-
-
     return (
       <div>
       <Title/>
