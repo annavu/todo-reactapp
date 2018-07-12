@@ -8,11 +8,11 @@ import './App.css';
 
 const todo = [
   {
-    task: 'learn react',
+    task: 'react all day',
     complete: false
   },
   {
-    task: 'learn css',
+    task: 'git now',
     complete: true
   }
 ];
@@ -27,10 +27,7 @@ class App extends Component {
     }
   }
 
-  onAdd() {
-    console.log('add');
-  }
-
+  
   
 
 
@@ -41,7 +38,7 @@ console.log(this.state.todos);
     return (
       <div className="container">
        <Header/>
-       <Form onAdd={this.onAdd.bind(this)}  />
+       <Form/>
        <List items={this.state.todo}/>
 
   

@@ -67,6 +67,8 @@ body {
   background: #ccc;
   border: none;
   font-weight: bold;
+  width:70px;
+  outline: none;
 }
 
 .fa {
