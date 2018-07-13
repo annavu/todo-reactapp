@@ -12,7 +12,7 @@ changeBtn() {
   if(this.state.edit) {
     return (
       <div className="list__btn btn">
-        <button className="btn__edit" >save</button>
+        <button className="btn__edit" onClick={this.onSave.bind(this)} >save</button>
         <i className="fa fa-times btn__remove" onClick={this.cancelEdit.bind(this)}></i>
       </div>
     );
@@ -20,30 +20,74 @@ changeBtn() {
     return (
       <div className="list__btn btn">
         <button className="btn__edit" onClick={this.editTask.bind(this)}>edit</button>
-        <i className="fa fa-trash icon btn__remove"></i>
+        <i className="fa fa-trash icon btn__remove" onClick={this.onDelete.bind(this)}></i>
       </div>
   );
 }
-  
+  renderTaskSection() {
+    console.log(this.props.item)
+
+    const {task, complete} = this.props.item;
+
+    const taskStyle = {
+      color: complete ? '#008000' : '#666',
+      cursor: 'pointer'
+    };
+
+    const iconStyle = {
+      color: complete ? '#008000' : '#888',
+      cursor: 'pointer'
+    };
+
+    if(this.state.edit) {
+      return (
+        <input type="text" defaultValue={task} className="list__input" onSubmit={this.onSave.bind(this)} ref="editTask"/>
+      )
+    }
+
+   
+
+    return (
+      <div className="list__item" onClick={this.props.toggle.bind(this,task)}>
+        <li style={taskStyle} > {this.props.item.task}</li>
+        <i style={iconStyle} className="fa fa-check icon"></i>
+      </div>
+    )
+  }
 
   render() {
     console.log(this.props.item.task);
     return (
       <div className="item">
-        <li className="list__item"> {this.props.item.task}</li>
+        {this.renderTaskSection()}
         {this.changeBtn()}
       </div>
     )
   }
 
+  
+
   editTask() {
     this.setState({edit:true});
+    console.log(this.props.saveTask)
   }
 
   cancelEdit() {
     this.setState({edit:false});
   }
 
+  onSave(e) {
+    e.preventDefault();
+    const oldTask = this.props.item.task;
+    const newTask = this.refs.editTask.value;
+    this.props.saveTask(oldTask,newTask);
+    this.setState({edit:false});
+  }
+
+  onDelete(e) {
+    e.preventDefault();
+    this.props.delete(this.props.item);
+  }
  
 }
 

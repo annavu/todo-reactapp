@@ -11,27 +11,38 @@ class List extends React.Component {
     }
   }
 
-  showItems() {
-    let items = this.props.items;
-    console.log(items);
-    return items.map(function(item, index) { 
-      console.log(item.task)
-      return <Item item={item} key={index}/>
-  })
 
-  }
 
 
   render() {
     console.log(this.props.items);
+    console.log(this.props.saveTask)
+    console.log(this.props.toggle);
+    console.log(this.props.delete);
     return (
-      <div>
+      <div >
       <Title/>
       <ul className="list">
       {this.showItems()}
       </ul>
       </div>
     )
+  }
+
+
+  
+  showItems() {
+    let items = this.props.items;
+    const props = this.props;
+    console.log(items);
+    console.log(this.props)
+    return items.map(function(item, index) { 
+      console.log(item.task)
+      console.log(item);
+      return <Item item={item} key={index} {...props}/>
+      
+  })
+
   }
 };
 

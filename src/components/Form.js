@@ -9,14 +9,15 @@ class Form extends React.Component {
     }
 }
 
-addTask(e) {
+handleTask(e) {
   e.preventDefault();
-  console.log(123);
+  console.log(this.props.addToList);
   const task = e.target.elements.task.value;
   console.log(task);
 
   if(task) {
     e.target.elements.task.value = '';
+    this.props.addToList(task);
   } else {
     this.setState({
       alert: 'Please enter the task'
@@ -28,7 +29,7 @@ addTask(e) {
 
   render() {
     return (
-      <form className="form" onSubmit={this.addTask.bind(this)}>
+      <form className="form" onSubmit={this.handleTask.bind(this)}>
         <input type="text" name="task" className="input" placeholder="enter your task.." autoComplete="off"/>  
         <button className="add">add</button>
       </form>
