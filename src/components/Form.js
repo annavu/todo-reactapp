@@ -18,6 +18,9 @@ handleTask(e) {
   if(task) {
     e.target.elements.task.value = '';
     this.props.addToList(task);
+    this.setState({
+      alert: ''
+    })
   } else {
     this.setState({
       alert: 'Please enter the task'
@@ -29,10 +32,13 @@ handleTask(e) {
 
   render() {
     return (
-      <form className="form" onSubmit={this.handleTask.bind(this)}>
-        <input type="text" name="task" className="input" placeholder="enter your task.." autoComplete="off"/>  
-        <button className="add">add</button>
-      </form>
+      <div className="action">
+        <form className="form" onSubmit={this.handleTask.bind(this)}>
+          <input type="text" name="task" className="input" placeholder="enter your task.." autoComplete="off"/>  
+          <button className="add">add</button>
+        </form>
+        <p className="alert">{this.state.alert}</p>
+      </div>
     )
   }
 };
