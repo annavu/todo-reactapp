@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Form from './components/Form';
 import List from './components/List';
 import Filter from './components/Filter';
-
+import Select from './components/Select';
 import './App.css';
 
 
@@ -82,11 +82,14 @@ console.log(this.state.filterText)
       <div className="container">
        <Header/>
        <Form addToList={this.addToList.bind(this)}/>
+       <div className="search">
        <Filter 
        
        filterTask={this.filterTask.bind(this)}
        filterText={this.state.filterText}
        />
+       <Select/>
+       </div>
        <List 
        items={this.state.todo}
        toggle={this.toggle.bind(this)}
