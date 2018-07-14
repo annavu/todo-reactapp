@@ -21,8 +21,8 @@ class List extends React.Component {
     console.log(this.props.toggle);
     console.log(this.props.delete);
     return (
-      <div >
-      <Title/>
+      <div className="tasks" >
+    <Title/>  
       <ul className="list">
       {this.showItems()}
       </ul>
@@ -38,6 +38,15 @@ class List extends React.Component {
     console.log(items);
     console.log(this.props)
     return items
+    .filter(item => {
+      if(this.props.show === 'complete') {
+      return item.complete === true;
+      } else if(this.props.show === 'uncomplete') {
+        return item.complete === false;
+      } else {
+        return true;
+      }
+    })
     .filter(item => {
       return item.task.toLowerCase().indexOf(this.props.filterText.toLowerCase()) !== -1;
     })

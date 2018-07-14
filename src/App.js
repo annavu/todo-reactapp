@@ -25,7 +25,8 @@ class App extends Component {
     super(props) 
     this.state = { 
       todo,
-      filterText: ''
+      filterText: '',
+      show: 'all'
     }
   }
 
@@ -72,12 +73,18 @@ class App extends Component {
     })
   }
 
+  selectedTask(task) {
+    this.setState({
+      show:task
+    })
+  }
 
 
   render() {
     
 console.log(this.state.todo);
 console.log(this.state.filterText)
+console.log(this.state.show)
     return (
       <div className="container">
        <Header/>
@@ -88,7 +95,9 @@ console.log(this.state.filterText)
        filterTask={this.filterTask.bind(this)}
        filterText={this.state.filterText}
        />
-       <Select/>
+       <Select 
+       show={this.state.show}
+       selectedTask={this.selectedTask.bind(this)}/>
        </div>
        <List 
        items={this.state.todo}
@@ -96,6 +105,7 @@ console.log(this.state.filterText)
        saveTask={this.saveTask.bind(this)}
        delete={this.delete.bind(this)}
        filterText = {this.state.filterText}
+       show={this.state.show}
        />
 
   
