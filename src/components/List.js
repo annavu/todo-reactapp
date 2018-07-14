@@ -15,6 +15,7 @@ class List extends React.Component {
 
 
   render() {
+    /* <p>{this.props.filterText}</p> */
     console.log(this.props.items);
     console.log(this.props.saveTask)
     console.log(this.props.toggle);
@@ -36,10 +37,14 @@ class List extends React.Component {
     const props = this.props;
     console.log(items);
     console.log(this.props)
-    return items.map(function(item, index) { 
+    return items
+    .filter(item => {
+      return item.task.toLowerCase().indexOf(this.props.filterText.toLowerCase()) !== -1;
+    })
+    .map(function(item, index) { 
       console.log(item.task)
       console.log(item);
-      return <Item item={item} key={index} {...props}/>
+      return <Item item={item} key={index} {...props} />
       
   })
 

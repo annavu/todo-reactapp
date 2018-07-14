@@ -3,7 +3,7 @@ import React from 'react';
 class Title extends React.Component {
   render() {
     return (
-      <h1>List</h1>
+      <h2>List</h2>
     )
   }
 }

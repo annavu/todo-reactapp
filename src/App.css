@@ -43,6 +43,9 @@ body {
   font-weight: bold;
 }
 
+.filter {
+  margin-top:15px;
+}
 
 .list {
   margin: 0 auto;

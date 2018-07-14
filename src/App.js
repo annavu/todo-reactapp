@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
 import List from './components/List';
+import Filter from './components/Filter';
 
 import './App.css';
 
@@ -23,7 +24,8 @@ class App extends Component {
   constructor(props) {
     super(props) 
     this.state = { 
-      todo
+      todo,
+      filterText: ''
     }
   }
 
@@ -59,20 +61,38 @@ class App extends Component {
     this.setState({todo:updateTodo});
   }
 
+  filterTask(task) {
+    // let filterTodo = this.state.todo;
+    // filterTodo = filterTodo.filter((item,index) => {
+    //   return task === item;
+    // });
+    // this.setState({todo:filterTodo});
+    this.setState({
+      filterText: task
+    })
+  }
+
 
 
   render() {
     
 console.log(this.state.todo);
+console.log(this.state.filterText)
     return (
       <div className="container">
        <Header/>
        <Form addToList={this.addToList.bind(this)}/>
+       <Filter 
+       
+       filterTask={this.filterTask.bind(this)}
+       filterText={this.state.filterText}
+       />
        <List 
        items={this.state.todo}
        toggle={this.toggle.bind(this)}
        saveTask={this.saveTask.bind(this)}
        delete={this.delete.bind(this)}
+       filterText = {this.state.filterText}
        />
 
   
