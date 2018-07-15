@@ -30,12 +30,20 @@ class App extends Component {
     }
   }
 
+  // componentDidMount() {
+  //   this.setState({todo:JSON.parse(localStorage.getItem('todo'))});
+  // }
+
+ 
+
   addToList(task) {
     this.state.todo.push({
       task: task,
       complete:false
     });
+    // localStorage.setItem('todo', JSON.stringify(this.state.todo));
     this.setState({todo:this.state.todo});
+    
   }
   
   saveTask(oldT, newT) {
@@ -51,7 +59,7 @@ class App extends Component {
     console.log(this.state.todo);
     findTodo.complete = !findTodo.complete;
     this.setState({todo: this.state.todo});
-  
+    // localStorage.setItem('todo', JSON.stringify(this.state.todo));
   }
 
   delete(task) {
@@ -59,15 +67,12 @@ class App extends Component {
     updateTodo = updateTodo.filter((item,index) => {
       return task !== item;
     });
+    
     this.setState({todo:updateTodo});
+    // localStorage.setItem('todo', JSON.stringify(updateTodo));
   }
 
   filterTask(task) {
-    // let filterTodo = this.state.todo;
-    // filterTodo = filterTodo.filter((item,index) => {
-    //   return task === item;
-    // });
-    // this.setState({todo:filterTodo});
     this.setState({
       filterText: task
     })
