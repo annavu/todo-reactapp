@@ -1,10 +1,10 @@
-## ToDo ReactApp
+# ToDo ReactApp
 
 (build in progress)
 
 ---
 
-# Setup
+## Setup
 
 to run project clone or download this repository, then:
 ```
