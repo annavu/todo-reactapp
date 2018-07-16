@@ -1,7 +1,5 @@
 # ToDo ReactApp
 
-(build in progress)
-
 with this app you can:
 - add, edit, remove todos
 - mark them as "complete"
