@@ -24,6 +24,7 @@ class App extends Component {
   constructor(props) {
     super(props) 
     this.state = { 
+      // todo: JSON.parse(localStorage.getItem('todo')) || todo,
       todo,
       filterText: '',
       show: 'all'
@@ -73,9 +74,8 @@ class App extends Component {
       task: task,
       complete:false
     });
-    // localStorage.setItem('todo', JSON.stringify(this.state.todo));
     this.setState({todo:this.state.todo});
-    
+    // localStorage.setItem('todo', JSON.stringify(this.state.todo));
   }
   
   saveTask(oldT, newT) {
