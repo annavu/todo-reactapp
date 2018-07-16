@@ -12,23 +12,18 @@ class List extends React.Component {
   }
 
 
-
-
   render() {
-    /* <p>{this.props.filterText}</p> */
     console.log(this.props.items);
     console.log(this.props.saveTask)
     console.log(this.props.toggle);
-    console.log(this.props.delete);
+    console.log(this.props.deleteTask);
     return (
       <div className="tasks" >
-    <Title/>  
-      <ul className="list">
-      {this.showItems()}
-      </ul>
+        <Title/>  
+        <ul className="list">{this.showItems()}</ul>
       </div>
     )
-  }
+  };
 
 
   
@@ -41,7 +36,7 @@ class List extends React.Component {
     .filter(item => {
       if(this.props.show === 'complete') {
       return item.complete === true;
-      } else if(this.props.show === 'uncomplete') {
+      } else if(this.props.show === 'incomplete') {
         return item.complete === false;
       } else {
         return true;

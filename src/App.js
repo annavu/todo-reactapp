@@ -34,6 +34,38 @@ class App extends Component {
   //   this.setState({todo:JSON.parse(localStorage.getItem('todo'))});
   // }
 
+
+  render() {
+    
+    console.log(this.state.todo);
+    console.log(this.state.filterText)
+    console.log(this.state.show)
+    return (
+      <div className="container">
+        <Header/>
+        <Form addToList={this.addToList.bind(this)}/>
+        <div className="search">
+          <Filter 
+            filterTask={this.filterTask.bind(this)}
+            filterText={this.state.filterText}
+           />
+           <Select 
+            show={this.state.show}
+            selectedTask={this.selectedTask.bind(this)}/>
+        </div>
+        <List 
+          items={this.state.todo}
+          toggle={this.toggle.bind(this)}
+          saveTask={this.saveTask.bind(this)}
+          deleteTask={this.deleteTask.bind(this)}
+          filterText = {this.state.filterText}
+          show={this.state.show}
+        />
+      </div>
+    );
+  }
+
+
  
 
   addToList(task) {
@@ -62,7 +94,7 @@ class App extends Component {
     // localStorage.setItem('todo', JSON.stringify(this.state.todo));
   }
 
-  delete(task) {
+  deleteTask(task) {
     let updateTodo = this.state.todo;
     updateTodo = updateTodo.filter((item,index) => {
       return task !== item;
@@ -82,41 +114,7 @@ class App extends Component {
     this.setState({
       show:task
     })
-  }
-
-
-  render() {
-    
-console.log(this.state.todo);
-console.log(this.state.filterText)
-console.log(this.state.show)
-    return (
-      <div className="container">
-       <Header/>
-       <Form addToList={this.addToList.bind(this)}/>
-       <div className="search">
-       <Filter 
-       
-       filterTask={this.filterTask.bind(this)}
-       filterText={this.state.filterText}
-       />
-       <Select 
-       show={this.state.show}
-       selectedTask={this.selectedTask.bind(this)}/>
-       </div>
-       <List 
-       items={this.state.todo}
-       toggle={this.toggle.bind(this)}
-       saveTask={this.saveTask.bind(this)}
-       delete={this.delete.bind(this)}
-       filterText = {this.state.filterText}
-       show={this.state.show}
-       />
-
-  
-      </div>
-    );
-  }
-}
+  }  
+};
 
 export default App;

@@ -2,6 +2,15 @@ import React from 'react';
 
 class Select extends React.Component {
 
+  render() {
+    return (
+      <select name="" className="select" onChange={this.handleSelect.bind(this)}>
+        <option value="all">all</option>
+        <option  value="complete">complete</option>
+        <option value="incomplete">incomplete</option>
+      </select>
+    )
+  }
 
   handleSelect(e) {
     const val = e.target.value;
@@ -11,17 +20,6 @@ class Select extends React.Component {
       this.props.selectedTask(val)
     }
   }
-
-
-  render() {
-    return (
-      <select name="" className="select" onChange={this.handleSelect.bind(this)}>
-        <option value="all">all</option>
-        <option  value="complete">complete</option>
-        <option value="uncomplete">uncomplete</option>
-      </select>
-    )
-  }
-}
+};
 
 export default Select;
