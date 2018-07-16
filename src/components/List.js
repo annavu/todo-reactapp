@@ -13,10 +13,8 @@ class List extends React.Component {
 
 
   render() {
-    console.log(this.props.items);
-    console.log(this.props.saveTask)
-    console.log(this.props.toggle);
-    console.log(this.props.deleteTask);
+    // console.log(this.props.items);
+    // console.log(this.props.saveTask)
     return (
       <div className="tasks" >
         <Title/>  
@@ -30,8 +28,7 @@ class List extends React.Component {
   showItems() {
     let items = this.props.items;
     const props = this.props;
-    console.log(items);
-    console.log(this.props)
+    // console.log(this.props)
     return items
     .filter(item => {
       if(this.props.show === 'complete') {
@@ -46,8 +43,7 @@ class List extends React.Component {
       return item.task.toLowerCase().indexOf(this.props.filterText.toLowerCase()) !== -1;
     })
     .map(function(item, index) { 
-      console.log(item.task)
-      console.log(item);
+      // console.log(item);
       return <Item item={item} key={index} {...props} />
       
   })

@@ -12,9 +12,8 @@ import React from 'react';
 
   handleFilter() {
     const task =this.refs.task.value;
-    console.log(task);
     // console.log(this.props.items)
-    console.log(this.props.filterTask)
+    // console.log(this.props.filterTask)
     
     if(task) {
       this.props.filterTask(task)

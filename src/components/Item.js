@@ -10,7 +10,6 @@ class Item extends React.Component {
 
 
   render() {
-    console.log(this.props.item.task);
     return (
       <div className="item">
         {this.renderTask()}
@@ -21,8 +20,8 @@ class Item extends React.Component {
 
 
   renderTask() {
-    console.log(this.props.item)
-    console.log(this.props)
+    // console.log(this.props.item)
+    // console.log(this.props)
     const {task, complete} = this.props.item;
 
     const taskStyle = {
@@ -69,7 +68,6 @@ class Item extends React.Component {
   
   editTask() {
     this.setState({edit:true});
-    console.log(this.props.saveTask)
   }
 
   cancelEdit() {

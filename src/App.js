@@ -24,8 +24,7 @@ class App extends Component {
   constructor(props) {
     super(props) 
     this.state = { 
-      // todo: JSON.parse(localStorage.getItem('todo')) || todo,
-      todo,
+      todo: JSON.parse(localStorage.getItem('todo')) || todo,
       filterText: '',
       show: 'all'
     }
@@ -37,10 +36,6 @@ class App extends Component {
 
 
   render() {
-    
-    console.log(this.state.todo);
-    console.log(this.state.filterText)
-    console.log(this.state.show)
     return (
       <div className="container">
         <Header/>
@@ -75,7 +70,7 @@ class App extends Component {
       complete:false
     });
     this.setState({todo:this.state.todo});
-    // localStorage.setItem('todo', JSON.stringify(this.state.todo));
+    localStorage.setItem('todo', JSON.stringify(this.state.todo));
   }
   
   saveTask(oldT, newT) {
@@ -84,14 +79,14 @@ class App extends Component {
     this.setState({
       todo: this.state.todo
     })
+    localStorage.setItem('todo', JSON.stringify(this.state.todo));
   }
 
   toggle(task) {
     const findTodo = this.state.todo.filter((item) => item.task === task)[0];
-    console.log(this.state.todo);
     findTodo.complete = !findTodo.complete;
     this.setState({todo: this.state.todo});
-    // localStorage.setItem('todo', JSON.stringify(this.state.todo));
+    localStorage.setItem('todo', JSON.stringify(this.state.todo));
   }
 
   deleteTask(task) {
@@ -101,7 +96,7 @@ class App extends Component {
     });
     
     this.setState({todo:updateTodo});
-    // localStorage.setItem('todo', JSON.stringify(updateTodo));
+    localStorage.setItem('todo', JSON.stringify(updateTodo));
   }
 
   filterTask(task) {

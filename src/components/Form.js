@@ -11,9 +11,8 @@ class Form extends React.Component {
 
 handleTask(e) {
   e.preventDefault();
-  console.log(this.props.addToList);
   const task = e.target.elements.task.value;
-  console.log(task);
+  // console.log(task);
 
   if(task) {
     e.target.elements.task.value = '';

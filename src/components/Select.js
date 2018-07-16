@@ -14,8 +14,7 @@ class Select extends React.Component {
 
   handleSelect(e) {
     const val = e.target.value;
-    console.log(val);
-    // console.log(this.props.show);
+    // console.log(val);
     if(val) {
       this.props.selectedTask(val)
     }
