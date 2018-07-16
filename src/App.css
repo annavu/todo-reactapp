@@ -1,34 +1,41 @@
-
-
-
-@import url('https://fonts.googleapis.com/css?family=Merriweather:100,200,300,300i,400,400i,700');
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+/* @import url('https://fonts.googleapis.com/css?family=Merriweather:100,200,300,300i,400,400i,700'); 
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab:400,700');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400'); */
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+
+:root {
+  --box-shadow-input: 0 1px 5px rgba(104,104,104,0.8);
+  --box-shadow-task:  2px 3px 5px rgba(68,68,68,0.3);
+  --body-bg:#ddd;
+  --main-color: #666;
+  --btn-input-color: #777;
+  --icon-color: #888;
+  --alert: #AD0910;
+  --input-btn-task-bg:#ccc;
+}
 
 
 body {
   font-family: "Montserrat";
-  background: #ddd;
-  color:  #666;
+  background: var(--body-bg);
+  color:  var(--main-color);
   box-sizing: border-box;
 }
-
 
 .container {
   text-align: center;
 }
-
 
 .action {
   height: 70px;
 }
 
 .input, .add {
-  background: #ccc;
-  box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+  background: var(--input-btn-task-bg);
+  box-shadow: var(--box-shadow-input);
   border: none; 
-  color: #777;
+  color: var(--btn-input-color);
   font-weight: bold;
   padding: 8px 10px;
   outline: none;
@@ -39,7 +46,7 @@ body {
 }
 
 .alert {
-  color: rgb(173, 9, 9);
+  color: var(--alert);
   font-weight: bold;
 }
 
@@ -52,14 +59,13 @@ body {
 
 .filter {
   margin-top:15px;
-  
 }
 
 .select {
-  background: #ccc;
-  box-shadow: 0 1px 5px rgba(104,104,104,0.8);
+  background: var(--input-btn-task-bg);
+  box-shadow: var(--box-shadow-input);
   border: none; 
-  color: #777;
+  color: var(--btn-input-color);
   font-weight: bold;
   padding: 0 10px;
   outline: none;
@@ -83,7 +89,6 @@ body {
   justify-content: center;
   align-items: center;
   width: 400px;
-  /* width:35%; */
 }
 
 
@@ -94,23 +99,22 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 250px;
-  box-shadow: 2px 3px 5px rgba(68,68,68,0.3);
-  background: #ccc;
+  box-shadow: var(--box-shadow-task);
+  background: var(--input-btn-task-bg);
   padding: 2px 10px;
   margin-left:20px;
 }
 
 .list__input {
   width: 250px;
-  color: #666;
+  color: var(--btn-input-color);
   font-weight: bold;
-  box-shadow: 2px 3px 5px rgba(68,68,68,0.3);
-  background: #ccc;
+  box-shadow: var(--box-shadow-task);
+  background: var(--input-btn-task-bg);
   padding: 8px 10px;
   border:none;
   outline:none;
   margin-left:20px;
-  /* height: 17px; */
 }
 
 .list__btn {
@@ -123,9 +127,9 @@ body {
   margin: 0 10px;
   padding: 8px 20px;
   cursor: pointer;
-  color: #777;
-  box-shadow: 2px 3px 5px rgba(68,68,68,0.3);
-  background: #ccc;
+  color:  var(--btn-input-color);
+  box-shadow: var(--box-shadow-task);
+  background: var(--input-btn-task-bg);
   border: none;
   font-weight: bold;
   width:70px;
@@ -133,17 +137,18 @@ body {
 }
 
 .fa {
-  color: #888;
+  color: var(--icon-color);
   font-size: 27px;
   cursor: pointer;
   margin: 2px 0 0 2px;
 }
 
 .btn__remove:hover {
-  color: rgb(173, 9, 9);
+  color: var(--alert);
   transition: 0.7s;
 }
 
+/* RWD */
 
 @media(max-width: 414px) {
   .item{
