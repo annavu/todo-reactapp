@@ -12,7 +12,7 @@ Enjoy!
 
 [jump here to see LIVE](https://annavu.github.io/todo-reactapp/)
 
-(suggestion: open this app on chrome)
+(suggestion: open this app in chrome)
 
 ---
 
